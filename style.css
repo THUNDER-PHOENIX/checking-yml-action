@@ -1,0 +1,768 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --black: #050505;
+    --dark: #0d0d0d;
+    --paper: #d8d2bd;
+    --paper-dark: #aaa58f;
+    --red: #b30000;
+    --bright-red: #ff1616;
+    --gray: #777;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #191919 0%,
+            #080808 50%,
+            #000 100%
+        );
+
+    color: white;
+
+    font-family: "Special Elite", monospace;
+
+    overflow-x: hidden;
+}
+
+
+/* -----------------------------
+   BACKGROUND
+------------------------------ */
+
+.rain {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.18;
+
+    background-image:
+        linear-gradient(
+            110deg,
+            transparent 40%,
+            rgba(255,255,255,0.15) 50%,
+            transparent 60%
+        );
+
+    background-size: 8px 40px;
+
+    animation: rainMove 0.35s linear infinite;
+}
+
+
+@keyframes rainMove {
+
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 8px 40px;
+    }
+}
+
+
+.particles {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,0,0,0.4) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    animation: particlesMove 10s linear infinite;
+}
+
+
+@keyframes particlesMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
+}
+
+
+/* -----------------------------
+   MAIN
+------------------------------ */
+
+.container {
+    position: relative;
+
+    width: min(1100px, 92%);
+
+    margin: auto;
+
+    padding: 60px 0;
+}
+
+
+/* -----------------------------
+   HEADER
+------------------------------ */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+
+.subtitle {
+    color: var(--red);
+
+    letter-spacing: 7px;
+
+    font-size: 12px;
+
+    margin-bottom: 15px;
+}
+
+
+h1 {
+    font-family: "Creepster", cursive;
+
+    font-size: clamp(70px, 13vw, 150px);
+
+    line-height: 0.8;
+
+    letter-spacing: 5px;
+
+    color: #eee;
+
+    text-shadow:
+        5px 5px 0 #222,
+        0 0 30px rgba(255,0,0,0.2);
+
+    animation: titlePulse 3s ease-in-out infinite;
+}
+
+
+h1 span {
+    color: var(--bright-red);
+}
+
+
+@keyframes titlePulse {
+
+    0%,
+    100% {
+        text-shadow:
+            5px 5px 0 #222,
+            0 0 15px rgba(255,0,0,0.1);
+    }
+
+    50% {
+        text-shadow:
+            5px 5px 0 #222,
+            0 0 40px rgba(255,0,0,0.6);
+    }
+}
+
+
+.quote {
+    margin-top: 25px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    font-style: italic;
+}
+
+
+/* -----------------------------
+   NOTEBOOK
+------------------------------ */
+
+.notebook {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 500px;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.8),
+        0 0 50px rgba(150,0,0,0.15);
+
+    transform: rotate(-1deg);
+
+    transition: transform 0.4s ease;
+}
+
+
+.notebook:hover {
+    transform: rotate(0deg) scale(1.01);
+}
+
+
+/* LEFT PAGE */
+
+.notebook-cover {
+    position: relative;
+
+    padding: 60px 45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111,
+            #050505
+        );
+
+    border: 2px solid #292929;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.notebook-cover h2 {
+    font-family: "Creepster", cursive;
+
+    font-size: 65px;
+
+    color: #ddd;
+
+    letter-spacing: 3px;
+}
+
+
+.notebook-cover p {
+    color: #888;
+
+    margin-top: 20px;
+
+    letter-spacing: 4px;
+}
+
+
+.cross {
+    color: var(--red);
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+
+    animation: spin 8s linear infinite;
+}
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.rule {
+    width: 80%;
+
+    height: 1px;
+
+    background: #444;
+
+    margin: 25px 0;
+}
+
+
+.small-text {
+    max-width: 300px;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    letter-spacing: 0 !important;
+
+    color: #777 !important;
+}
+
+
+/* RIGHT PAGE */
+
+.notebook-page {
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 31px,
+            rgba(0,0,0,0.12) 32px
+        ),
+        var(--paper);
+
+    color: #111;
+
+    padding: 60px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.notebook-page h3 {
+    font-family: "Creepster", cursive;
+
+    font-size: 45px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+
+.instruction {
+    color: #555;
+
+    font-size: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+input {
+    width: 100%;
+
+    border: none;
+
+    border-bottom: 2px solid #111;
+
+    background: transparent;
+
+    padding: 15px 5px;
+
+    font-family: "Special Elite", monospace;
+
+    font-size: 20px;
+
+    outline: none;
+
+    color: #111;
+}
+
+
+input::placeholder {
+    color: #777;
+}
+
+
+input:focus {
+    border-color: var(--red);
+}
+
+
+button {
+    margin-top: 25px;
+
+    padding: 15px 20px;
+
+    border: 2px solid #111;
+
+    background: #111;
+
+    color: white;
+
+    font-family: "Special Elite", monospace;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+    background: var(--red);
+
+    border-color: var(--red);
+
+    box-shadow:
+        0 0 25px rgba(255,0,0,0.4);
+
+    transform: translateY(-2px);
+}
+
+
+.result {
+    margin-top: 25px;
+
+    min-height: 40px;
+
+    color: #555;
+
+    font-size: 13px;
+}
+
+
+.result.active {
+    color: #8b0000;
+
+    animation: shake 0.4s;
+}
+
+
+@keyframes shake {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+/* -----------------------------
+   EYES / SHINIGAMI SECTION
+------------------------------ */
+
+.character {
+    max-width: 900px;
+
+    margin: 100px auto 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding: 40px;
+
+    border-top: 1px solid #333;
+
+    border-bottom: 1px solid #333;
+}
+
+
+.character-text {
+    text-align: center;
+
+    max-width: 450px;
+}
+
+
+.character-text h2 {
+    font-family: "Creepster", cursive;
+
+    font-size: 55px;
+
+    margin: 10px 0;
+}
+
+
+.character-text p {
+    color: #777;
+
+    line-height: 1.7;
+
+    font-size: 13px;
+}
+
+
+.red-label {
+    color: var(--bright-red) !important;
+
+    letter-spacing: 5px;
+
+    font-size: 11px !important;
+}
+
+
+/* EYES */
+
+.eye {
+    width: 100px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    border: 3px solid #555;
+
+    background: #eee;
+
+    position: relative;
+
+    overflow: hidden;
+
+    animation: eyeGlow 2s infinite alternate;
+}
+
+
+.eye::before {
+    content: "";
+
+    position: absolute;
+
+    width: 45px;
+
+    height: 45px;
+
+    background: #900;
+
+    border-radius: 50%;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+.pupil {
+    position: absolute;
+
+    width: 15px;
+
+    height: 15px;
+
+    background: black;
+
+    border-radius: 50%;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+}
+
+
+@keyframes eyeGlow {
+
+    from {
+        box-shadow: 0 0 5px red;
+    }
+
+    to {
+        box-shadow: 0 0 30px red;
+    }
+}
+
+
+/* -----------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+    text-align: center;
+
+    color: #444;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    line-height: 2;
+}
+
+
+/* -----------------------------
+   DEATH OVERLAY
+------------------------------ */
+
+.death-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(100,0,0,0.7),
+            rgba(0,0,0,0.98)
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.5s;
+
+    z-index: 100;
+}
+
+
+.death-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.death-message {
+    text-align: center;
+
+    animation: deathAppear 0.7s ease;
+}
+
+
+@keyframes deathAppear {
+
+    from {
+        transform: scale(0.5) rotate(-5deg);
+
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) rotate(0);
+
+        opacity: 1;
+    }
+}
+
+
+.skull {
+    font-size: 90px;
+
+    color: var(--bright-red);
+
+    text-shadow:
+        0 0 30px red;
+
+    animation: skullPulse 1s infinite alternate;
+}
+
+
+@keyframes skullPulse {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
+
+
+.death-message h2 {
+    font-family: "Creepster", cursive;
+
+    font-size: 80px;
+
+    color: white;
+
+    word-break: break-word;
+
+    max-width: 90vw;
+
+    text-shadow:
+        0 0 30px red;
+}
+
+
+.death-message p {
+    color: #aaa;
+
+    letter-spacing: 4px;
+
+    margin-top: 10px;
+}
+
+
+.death-message button {
+    background: transparent;
+
+    border-color: #666;
+}
+
+
+/* -----------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 700px) {
+
+    .notebook {
+        grid-template-columns: 1fr;
+
+        transform: none;
+    }
+
+    .notebook-cover {
+        min-height: 350px;
+    }
+
+    .notebook-page {
+        min-height: 400px;
+    }
+
+    .character {
+        flex-direction: column;
+    }
+
+    .death-message h2 {
+        font-size: 50px;
+    }
+
+}
