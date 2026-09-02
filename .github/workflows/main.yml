@@ -1,0 +1,505 @@
+project:
+  name: "Madara Uchiha — The Ghost of the Uchiha"
+  type: "fan-made-naruto-website"
+  language: "en"
+  description: "A cinematic fan-made archive exploring the lore, history, philosophy and battles of Madara Uchiha."
+
+  files:
+    html: "index.html"
+    css: "style.css"
+    javascript: "script.js"
+
+  fonts:
+    - family: "Cinzel"
+      weights: [500, 600, 700, 800, 900]
+      source: "Google Fonts"
+    - family: "Rajdhani"
+      weights: [400, 500, 600, 700]
+      source: "Google Fonts"
+
+  theme:
+    primary_background: "#030303"
+    secondary_background: "#080808"
+    tertiary_background: "#101010"
+
+    colors:
+      black: "#030303"
+      black_2: "#080808"
+      black_3: "#101010"
+      red_dark: "#430000"
+      red: "#a40000"
+      red_bright: "#ff1a1a"
+      red_glow: "rgba(255, 0, 0, 0.35)"
+      white: "#f2f2f2"
+      gray: "#929292"
+      gray_dark: "#555"
+      green: "#55b86a"
+
+    fonts:
+      heading: "Cinzel"
+      body: "Rajdhani"
+
+    max_width: "1400px"
+
+  assets:
+    images:
+      hero: "OIP_2.webp"
+      young_madara: "OIP (2).webp"
+      madara_hashirama: "download.webp"
+      madara_battle: "OIP (3).webp"
+      fourth_war: "OIP (1)_2.webp"
+      war_background: "naruto-tailed-beasts_2.jpg"
+      philosophy: "desktop-wallpaper-madara-uchiha-quote-quotes-madara-chiha.jpg"
+      roast: "madara2_2.webp"
+      final: "madara_2.webp"
+
+  navigation:
+    logo:
+      japanese: "うちは"
+      title: "MADARA"
+
+    links:
+      - name: "Story"
+        target: "#story"
+
+      - name: "Hashirama"
+        target: "#rivalry"
+
+      - name: "Fourth War"
+        target: "#war"
+
+      - name: "Abilities"
+        target: "#abilities"
+
+      - name: "Roasts"
+        target: "#roasts"
+
+  sections:
+
+    hero:
+      id: "top"
+      type: "hero"
+      eyebrow: "THE GHOST OF THE UCHIHA"
+
+      title:
+        main: "MADARA"
+        highlight: "UCHIHA"
+
+      description: "One man. One vision. An entire shinobi world standing in his way."
+
+      background:
+        image: "OIP_2.webp"
+        filter:
+          grayscale: 0.65
+          contrast: 1.25
+          brightness: 0.4
+
+      buttons:
+        - label: "ENTER THE LEGEND"
+          type: "link"
+          target: "#story"
+          style: "primary"
+
+        - label: "ACTIVATE SHARINGAN"
+          type: "button"
+          id: "sharinganButton"
+          style: "outline"
+
+      effects:
+        zoom_animation: true
+        mouse_parallax: true
+        noise_overlay: true
+        red_vignette: true
+
+    intro:
+      type: "intro"
+      eyebrow: "A HISTORY WRITTEN IN BLOOD"
+
+      heading:
+        text: "He didn't want"
+        highlight: "peace."
+
+      description: "He wanted a world where peace could never be taken away from humanity."
+
+    story:
+      id: "story"
+      type: "cards"
+
+      eyebrow: "THE BEGINNING"
+      heading: "THE STORY OF MADARA"
+
+      introduction: "Before he became a legend, Madara was simply a child born into a world where children were taught to fight."
+
+      cards:
+        - number: "01"
+          label: "CHILD OF WAR"
+          title: "Born Into Conflict"
+          image: "OIP (2).webp"
+          alt: "Young Madara"
+          text: "Madara grew up during the era of warring clans. The Uchiha and Senju were enemies, and children were forced onto battlefields long before they understood the meaning of peace."
+
+        - number: "02"
+          label: "THE RIVAL"
+          title: "Hashirama Senju"
+          image: "download.webp"
+          alt: "Madara and Hashirama"
+          text: "Madara eventually met Hashirama. Despite belonging to rival clans, the two shared the same dream: creating a world where children would not have to die on battlefields."
+
+        - number: "03"
+          label: "THE BREAK"
+          title: "Trust Shattered"
+          image: "OIP (3).webp"
+          alt: "Madara in battle"
+          text: "The creation of Konohagakure brought temporary peace, but Madara became convinced that the village system could not prevent future conflict."
+
+    timeline:
+      type: "timeline"
+      eyebrow: "THE FALL OF A LEGEND"
+      heading: "MADARA'S TIMELINE"
+
+      events:
+        - number: "01"
+          period: "CHILDHOOD"
+          title: "The Warring States Era"
+          description: "Madara grows up surrounded by war and loses his brothers, including Izuna, whose death becomes one of the defining wounds of his life."
+
+        - number: "02"
+          period: "KONOHA"
+          title: "The Village Hidden in the Leaves"
+          description: "Madara and Hashirama help create Konoha, attempting to replace the endless cycle of clan warfare."
+
+        - number: "03"
+          period: "THE VALLEY OF THE END"
+          title: "Madara vs Hashirama"
+          description: "Their opposing visions eventually lead to their legendary confrontation at the Valley of the End."
+
+        - number: "04"
+          period: "THE PLAN"
+          title: "The Eye of the Moon"
+          description: "Madara develops a plan to place the world under an illusion, believing that a dream without conflict is preferable to reality."
+
+        - number: "05"
+          period: "FOURTH WAR"
+          title: "The Ghost Returns"
+          description: "Madara returns to the battlefield and demonstrates why his name had become legendary among shinobi."
+
+    cinematic_image:
+      type: "image-break"
+      image: "OIP (1)_2.webp"
+      alt: "Madara during the Fourth Shinobi World War"
+
+      quote:
+        text: "WAKE UP TO REALITY."
+        author: "MADARA UCHIHA"
+
+    rivalry:
+      id: "rivalry"
+      type: "comparison"
+
+      eyebrow: "THE ETERNAL RIVALRY"
+      heading: "MADARA VS HASHIRAMA"
+
+      fighters:
+
+        - name: "MADARA"
+          clan: "UCHIHA"
+          theme_color: "#ff1a1a"
+          image: "OIP_2.webp"
+          abilities:
+            - "Eternal Mangekyō Sharingan"
+            - "Perfect Susanoo"
+            - "Rinnegan"
+            - "Nine-Tails control"
+
+        - name: "HASHIRAMA"
+          clan: "SENJU"
+          theme_color: "#55b86a"
+          image: "download.webp"
+          abilities:
+            - "Wood Release"
+            - "Sage Mode"
+            - "Healing abilities"
+            - "Shinobi Alliance legacy"
+
+      separator: "VS"
+
+    fourth_war:
+      id: "war"
+      type: "cinematic"
+
+      eyebrow: "FOURTH SHINOBI WORLD WAR"
+
+      title:
+        main: "THE GHOST"
+        highlight: "RETURNS."
+
+      description: "The battlefield wasn't prepared for a legend who had already decided how the war would end."
+
+      background_image: "naruto-tailed-beasts_2.jpg"
+
+    abilities:
+      id: "abilities"
+      type: "grid"
+
+      eyebrow: "POWER"
+      heading: "THE ARSENAL OF MADARA"
+
+      items:
+        - number: "01"
+          name: "SHARINGAN"
+          description: "The Uchiha's famous dōjutsu grants exceptional perception and allows its user to copy and anticipate techniques."
+
+        - number: "02"
+          name: "SUSANOO"
+          description: "Madara's Perfect Susanoo represents one of the most intimidating manifestations of Uchiha chakra."
+
+        - number: "03"
+          name: "RINNEGAN"
+          description: "After obtaining the Rinnegan, Madara gained access to abilities far beyond the standard Sharingan."
+
+        - number: "04"
+          name: "WOOD RELEASE"
+          description: "Through Hashirama's cells, Madara was eventually able to utilize Wood Release, combining Uchiha and Senju power."
+
+        - number: "05"
+          name: "LIMBO"
+          description: "Madara's Rinnegan grants access to invisible shadow clones existing in another plane of existence."
+
+        - number: "06"
+          name: "NINE-TAILS"
+          description: "Madara demonstrated his ability to control the Nine-Tails and use its immense chakra as a weapon."
+
+        - number: "07"
+          name: "TEN-TAILS"
+          description: "Madara eventually becomes the Ten-Tails' jinchūriki, reaching a level of power beyond ordinary shinobi."
+
+        - number: "08"
+          name: "INFINITE TSUKUYOMI"
+          description: "The ultimate goal of Madara's plan: a world trapped within a dream where conflict would supposedly disappear."
+
+    philosophy:
+      type: "split-section"
+
+      image: "desktop-wallpaper-madara-uchiha-quote-quotes-madara-chiha.jpg"
+
+      eyebrow: "THE PHILOSOPHY"
+
+      heading: "REALITY IS CRUEL."
+
+      paragraphs:
+        - "Madara's greatest weapon wasn't simply his chakra or his dōjutsu."
+        - "It was his belief that humanity would continue repeating the same cycle of hatred, violence and loss."
+        - "His answer was radical: eliminate reality itself."
+
+    roast_machine:
+      id: "roasts"
+      type: "interactive"
+
+      eyebrow: "THE UCHIHA'S GREATEST WEAPON"
+      heading: "MADARA ROASTS EVERYONE"
+
+      image: "madara2_2.webp"
+
+      button:
+        id: "roastButton"
+        label: "NEXT ROAST"
+
+      default:
+        target: "THE FIVE KAGE"
+        text: "Would you like these clones to use Susanoo or not?"
+
+      roasts:
+        - target: "THE FIVE KAGE"
+          text: "Would you like these clones to use Susanoo or not?"
+
+        - target: "ONOKI"
+          text: "What will you do about the second one, Ohnoki?"
+
+        - target: "THE SHINOBI ALLIANCE"
+          text: "You brought an entire army because apparently one person was not enough."
+
+        - target: "NARUTO UZUMAKI"
+          text: "You still have much to learn about the reality of this world."
+
+        - target: "THE BATTLEFIELD"
+          text: "Thousands of shinobi stood against him, and Madara treated the battlefield like a warm-up."
+
+    final:
+      type: "final"
+
+      eyebrow: "THE END OF THE LEGEND"
+
+      title:
+        main: "WAKE UP"
+        highlight: "TO REALITY."
+
+      background_image: "madara_2.webp"
+
+      button:
+        label: "RETURN TO THE BEGINNING"
+        target: "#top"
+        style: "outline"
+
+  interactions:
+
+    mobile_navigation:
+      toggle_element: "menuToggle"
+      navigation_element: "navLinks"
+      active_class: "active"
+
+      close_on_link_click: true
+
+    sharingan:
+      trigger: "sharinganButton"
+      overlay: "sharinganOverlay"
+
+      active_class: "active"
+
+      activate_text: "DEACTIVATE SHARINGAN"
+      deactivate_text: "ACTIVATE SHARINGAN"
+
+      lock_body_scroll: true
+      close_on_overlay_click: true
+      close_on_escape: true
+
+      animation:
+        name: "sharinganSpin"
+        duration: "5s"
+        timing: "linear"
+        iteration: "infinite"
+
+    roast_machine:
+      trigger: "roastButton"
+      target_element: "roastTarget"
+      text_element: "roastText"
+
+      transition:
+        duration: "200ms"
+        fade_out: true
+        fade_in: true
+
+      loop: true
+
+    scroll_reveal:
+      enabled: true
+
+      selector:
+        - ".story-card"
+        - ".timeline-item"
+        - ".fighter"
+        - ".ability-card"
+        - ".roast-box"
+
+      threshold: 0.12
+
+      animation:
+        opacity_from: 0
+        opacity_to: 1
+        translate_y_from: "35px"
+        translate_y_to: "0"
+        duration: "0.8s"
+        easing: "ease"
+
+    hero_parallax:
+      enabled: true
+      element: ".hero-background img"
+      desktop_min_width: 800
+
+      movement:
+        x_multiplier: 10
+        y_multiplier: 6
+        scale: 1.08
+
+  animations:
+
+    hero_zoom:
+      keyframes:
+        from:
+          transform: "scale(1.05)"
+        to:
+          transform: "scale(1.14)"
+      duration: "15s"
+      timing: "ease-in-out"
+      iteration: "infinite"
+      direction: "alternate"
+
+    scroll_indicator:
+      keyframes:
+        "0%, 100%":
+          transform: "scaleY(0.5)"
+          opacity: 0.3
+        "50%":
+          transform: "scaleY(1)"
+          opacity: 1
+      duration: "1.5s"
+      iteration: "infinite"
+
+    sharingan_spin:
+      keyframes:
+        to:
+          transform: "rotate(360deg)"
+      duration: "5s"
+      timing: "linear"
+      iteration: "infinite"
+
+  responsive:
+
+    tablet:
+      breakpoint: "1000px"
+
+      story_columns: 2
+      ability_columns: 2
+      rivalry_columns: 1
+      philosophy_columns: 1
+
+      philosophy_image_height: "500px"
+
+    mobile:
+      breakpoint: "700px"
+
+      navbar_padding: "16px 5%"
+
+      mobile_menu: true
+
+      story_columns: 1
+      ability_columns: 1
+      rivalry_columns: 1
+      philosophy_columns: 1
+      roast_columns: 1
+
+      hero:
+        min_height: "850px"
+        heading_size: "4.2rem"
+
+      section:
+        width: "90%"
+        padding: "90px 0"
+
+      timeline:
+        padding: "90px 6%"
+        columns: "50px 1fr"
+        gap: "15px"
+
+      cinematic_image:
+        height: "65vh"
+
+      roast_image:
+        min_height: "400px"
+
+      roast_content:
+        padding: "40px 30px"
+
+      sharingan_eye:
+        width: "210px"
+        height: "210px"
+
+  footer:
+    logo: "UCHIHA MADARA"
+    tagline: "THE GHOST OF THE UCHIHA"
+
+    disclaimer: "Fan-made Naruto website. Not affiliated with the original creators or rights holders."
+
+  seo:
+    title: "Madara Uchiha — The Ghost of the Uchiha"
+    language: "en"
+    description: "A cinematic fan-made archive exploring the lore, history, philosophy and battles of Madara Uchiha."
