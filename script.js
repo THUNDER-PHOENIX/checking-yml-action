@@ -1,106 +1,249 @@
-const nameInput = document.getElementById("nameInput");
-const writeButton = document.getElementById("writeButton");
+/* =========================
+   SHARINGAN
+========================= */
 
-const result = document.getElementById("result");
+const sharinganButton =
+    document.getElementById("sharinganButton");
 
-const deathOverlay = document.getElementById("deathOverlay");
-const deathName = document.getElementById("deathName");
-
-const closeButton = document.getElementById("closeButton");
-
-const year = document.getElementById("year");
+const sharingan =
+    document.getElementById("sharingan");
 
 
-/* Current year */
+sharinganButton.addEventListener(
+    "click",
+    () => {
 
-year.textContent = new Date().getFullYear();
+        sharingan.classList.toggle("active");
+
+        if (sharingan.classList.contains("active")) {
+
+            sharinganButton.textContent =
+                "DEACTIVATE SHARINGAN";
+
+        } else {
+
+            sharinganButton.textContent =
+                "ACTIVATE SHARINGAN";
+
+        }
+
+    }
+);
 
 
-/* Write name */
 
-function writeName() {
+/* =========================
+   MADARA ROASTS
+========================= */
 
-    const name = nameInput.value.trim();
+const target =
+    document.getElementById("target");
 
-    if (!name) {
+const roastText =
+    document.getElementById("roastText");
 
-        result.textContent = "The notebook requires a name.";
+const roastButton =
+    document.getElementById("roastButton");
 
-        result.classList.add("active");
+
+const roasts = [
+
+    {
+        target: "THE SHINOBI ALLIANCE",
+
+        text:
+            "You brought an entire army because apparently one person was not enough to challenge me."
+    },
+
+
+    {
+        target: "THE FIVE KAGE",
+
+        text:
+            "Five leaders entered the battlefield together, and Madara still looked like he was waiting for the real fight."
+    },
+
+
+    {
+        target: "THE UCHIHA RIVALS",
+
+        text:
+            "You inherited the name Uchiha. Madara inherited the responsibility of making everyone terrified of it."
+    },
+
+
+    {
+        target: "THE BATTLEFIELD",
+
+        text:
+            "The battlefield had thousands of shinobi. Madara treated it like a warm-up arena."
+    },
+
+
+    {
+        target: "HASHIRAMA",
+
+        text:
+            "Hashirama was the one opponent Madara genuinely respected — which says everything about everyone else."
+    },
+
+
+    {
+        target: "THE ALLIANCE",
+
+        text:
+            "Your greatest strategy was bringing more people. My strategy was being Madara."
+    },
+
+
+    {
+        target: "THE SHINOBI SYSTEM",
+
+        text:
+            "You built a world around endless conflict and then acted surprised when someone decided to rewrite it."
+    }
+
+];
+
+
+let roastIndex = 0;
+
+
+roastButton.addEventListener(
+    "click",
+    () => {
+
+        roastIndex++;
+
+        if (roastIndex >= roasts.length) {
+
+            roastIndex = 0;
+
+        }
+
+
+        const roast =
+            roasts[roastIndex];
+
+
+        target.textContent =
+            roast.target;
+
+
+        roastText.style.opacity = "0";
+
 
         setTimeout(() => {
-            result.classList.remove("active");
-        }, 500);
 
-        nameInput.focus();
+            roastText.textContent =
+                roast.text;
 
-        return;
+            roastText.style.opacity = "1";
+
+        }, 200);
+
     }
-
-
-    /*
-        This is only a fictional website effect.
-        Nothing real happens to the person.
-    */
-
-    deathName.textContent = name.toUpperCase();
-
-    result.textContent =
-        `The name "${name}" has been written.`;
-
-    result.classList.add("active");
-
-    deathOverlay.classList.add("show");
-}
-
-
-/* Button */
-
-writeButton.addEventListener(
-    "click",
-    writeName
 );
 
 
-/* Enter key */
 
-nameInput.addEventListener(
-    "keydown",
-    function(event) {
+/* =========================
+   SCROLL REVEAL
+========================= */
 
-        if (event.key === "Enter") {
+const revealElements =
+    document.querySelectorAll(
+        ".lore-card, .quote-card, .ability, .fighter"
+    );
 
-            writeName();
 
+const observer =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(
+                (entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "revealed"
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.15
         }
+    );
+
+
+revealElements.forEach(
+    (element) => {
+
+        element.style.opacity = "0";
+
+        element.style.transform =
+            "translateY(30px)";
+
+        element.style.transition =
+            "opacity 0.7s ease, transform 0.7s ease";
+
+        observer.observe(element);
 
     }
 );
 
 
-/* Close */
+/* Add revealed animation */
 
-closeButton.addEventListener(
-    "click",
-    function() {
+const revealStyle =
+    document.createElement("style");
 
-        deathOverlay.classList.remove("show");
 
+revealStyle.textContent = `
+
+    .revealed {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
     }
-);
+
+`;
 
 
-/* Escape key */
+document.head.appendChild(revealStyle);
+
+
+
+/* =========================
+   MOUSE PARALLAX
+========================= */
 
 document.addEventListener(
-    "keydown",
-    function(event) {
+    "mousemove",
+    (event) => {
 
-        if (event.key === "Escape") {
+        const x =
+            (event.clientX / window.innerWidth - 0.5) * 10;
 
-            deathOverlay.classList.remove("show");
+        const y =
+            (event.clientY / window.innerHeight - 0.5) * 10;
 
-        }
+
+        document.documentElement.style.setProperty(
+            "--mouse-x",
+            `${x}px`
+        );
+
+
+        document.documentElement.style.setProperty(
+            "--mouse-y",
+            `${y}px`
+        );
 
     }
 );

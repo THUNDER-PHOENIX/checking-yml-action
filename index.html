@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -8,158 +9,697 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Death Note — The Notebook</title>
+    <title>Madara Uchiha | The Ghost of the Uchiha</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-    <!-- Animated background -->
-    <div class="rain"></div>
-    <div class="particles"></div>
+    <!-- =========================
+         BACKGROUND EFFECTS
+    ========================== -->
 
-    <!-- Main container -->
-    <main class="container">
-
-        <header class="header">
-            <p class="subtitle">THE WORLD OF THE DEAD</p>
-
-            <h1>
-                DEATH
-                <span>NOTE</span>
-            </h1>
-
-            <p class="quote">
-                "Those who use the notebook must pay the price."
-            </p>
-        </header>
+    <div class="stars"></div>
+    <div class="embers"></div>
+    <div class="battle-smoke"></div>
 
 
-        <!-- Notebook -->
-        <section class="notebook">
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
-            <div class="notebook-cover">
+    <nav>
 
-                <div class="cross">
-                    ✦
-                </div>
+        <div class="logo">
+            うちは
+            <span>MADARA</span>
+        </div>
 
-                <h2>DEATH NOTE</h2>
+        <div class="nav-links">
+            <a href="#lore">Lore</a>
+            <a href="#hashirama">Hashirama</a>
+            <a href="#war">Fourth War</a>
+            <a href="#quotes">Quotes</a>
+            <a href="#roasts">Roasts</a>
+        </div>
 
-                <p>
-                    HOW TO USE IT
-                </p>
-
-                <div class="rule"></div>
-
-                <p class="small-text">
-                    The human whose name is written in this
-                    note shall die.
-                </p>
-
-            </div>
+    </nav>
 
 
-            <div class="notebook-page">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-                <h3>WRITE A NAME</h3>
+    <header class="hero">
 
-                <p class="instruction">
-                    Enter the name of a fictional target.
-                </p>
+        <div class="hero-image">
 
-                <input
-                    type="text"
-                    id="nameInput"
-                    placeholder="Enter a name..."
-                    autocomplete="off"
-                >
-
-                <button id="writeButton">
-                    WRITE NAME
-                </button>
-
-                <div id="result" class="result">
-                    Awaiting a name...
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Character panel -->
-        <section class="character">
-
-            <div class="eye left-eye">
-                <div class="pupil"></div>
-            </div>
-
-            <div class="character-text">
-
-                <p class="red-label">
-                    SHINIGAMI
-                </p>
-
-                <h2>
-                    THE EYES
-                </h2>
-
-                <p>
-                    A world where names have consequences,
-                    and every decision has a price.
-                </p>
-
-            </div>
-
-            <div class="eye right-eye">
-                <div class="pupil"></div>
-            </div>
-
-        </section>
-
-
-        <footer>
-            <p>
-                THIS IS A FICTIONAL DEMONSTRATION
-            </p>
-
-            <p>
-                <span id="year"></span> • THE NOTEBOOK
-            </p>
-        </footer>
-
-    </main>
-
-
-    <!-- Death effect -->
-    <div id="deathOverlay" class="death-overlay">
-
-        <div class="death-message">
-
-            <div class="skull">
-                ☠
-            </div>
-
-            <h2 id="deathName">
-                NAME
-            </h2>
-
-            <p>
-                THE NAME HAS BEEN WRITTEN
-            </p>
-
-            <button id="closeButton">
-                CLOSE THE NOTE
-            </button>
+            <img
+                src="assets/madara-red.webp"
+                alt="Madara Uchiha artwork"
+            >
 
         </div>
 
-    </div>
 
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                THE GHOST OF THE UCHIHA
+            </p>
+
+            <h1>
+                MADARA
+                <span>UCHIHA</span>
+            </h1>
+
+            <p class="hero-description">
+                One man. One vision. An entire shinobi world
+                standing in his way.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#lore" class="btn">
+                    ENTER THE LEGEND
+                </a>
+
+                <button id="sharinganButton" class="btn red">
+                    ACTIVATE SHARINGAN
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Sharingan -->
+
+        <div id="sharingan" class="sharingan">
+
+            <div class="tomoe t1"></div>
+            <div class="tomoe t2"></div>
+            <div class="tomoe t3"></div>
+
+            <div class="sharingan-center"></div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="intro">
+
+        <p>
+            "The world is full of contradictions."
+        </p>
+
+        <span>
+            — MADARA UCHIHA
+        </span>
+
+    </section>
+
+
+
+    <!-- =========================
+         LORE
+    ========================== -->
+
+    <section id="lore" class="section">
+
+        <div class="section-heading">
+
+            <p>THE LEGEND</p>
+
+            <h2>
+                THE LORE OF MADARA
+            </h2>
+
+        </div>
+
+
+        <div class="lore-grid">
+
+            <article class="lore-card">
+
+                <span class="number">
+                    01
+                </span>
+
+                <h3>
+                    CHILD OF WAR
+                </h3>
+
+                <p>
+                    Born during the brutal era of the warring
+                    clans, Madara experienced loss from an early
+                    age. His rivalry and friendship with Hashirama
+                    Senju shaped the future of the shinobi world.
+                </p>
+
+            </article>
+
+
+            <article class="lore-card">
+
+                <span class="number">
+                    02
+                </span>
+
+                <h3>
+                    THE UCHIHA LEADER
+                </h3>
+
+                <p>
+                    Madara became one of the most powerful
+                    members of the Uchiha clan. His Mangekyo
+                    Sharingan and battle instincts made him
+                    a terrifying opponent.
+                </p>
+
+            </article>
+
+
+            <article class="lore-card">
+
+                <span class="number">
+                    03
+                </span>
+
+                <h3>
+                    THE VISION
+                </h3>
+
+                <p>
+                    Madara believed the shinobi system would
+                    inevitably create more conflict. His solution
+                    was the Eye of the Moon Plan: an illusion
+                    capable of placing humanity into a dream world.
+                </p>
+
+            </article>
+
+
+            <article class="lore-card">
+
+                <span class="number">
+                    04
+                </span>
+
+                <h3>
+                    THE RETURN
+                </h3>
+
+                <p>
+                    Decades after his supposed death, Madara
+                    returned during the Fourth Shinobi World War,
+                    revealing just how far his preparations had
+                    reached.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MADARA IMAGE
+    ========================== -->
+
+    <section class="full-image">
+
+        <img
+            src="assets/madara-battle.webp"
+            alt="Madara battlefield artwork"
+        >
+
+        <div class="image-caption">
+
+            <p>
+                "This world..."
+            </p>
+
+            <h2>
+                BELONGS TO WAR.
+            </h2>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         HASHIRAMA
+    ========================== -->
+
+    <section id="hashirama" class="section hashirama-section">
+
+        <div class="section-heading">
+
+            <p>THE ETERNAL RIVALRY</p>
+
+            <h2>
+                MADARA VS HASHIRAMA
+            </h2>
+
+        </div>
+
+
+        <div class="battle">
+
+            <div class="fighter madara-side">
+
+                <div class="fighter-number">
+                    01
+                </div>
+
+                <h3>
+                    MADARA
+                </h3>
+
+                <p>
+                    UCHIHA
+                </p>
+
+                <ul>
+                    <li>Sharingan</li>
+                    <li>Mangekyo Sharingan</li>
+                    <li>Susanoo</li>
+                    <li>Kurama</li>
+                    <li>Perfect Susanoo</li>
+                </ul>
+
+            </div>
+
+
+            <div class="versus">
+                VS
+            </div>
+
+
+            <div class="fighter hashirama-side">
+
+                <div class="fighter-number">
+                    02
+                </div>
+
+                <h3>
+                    HASHIRAMA
+                </h3>
+
+                <p>
+                    SENJU
+                </p>
+
+                <ul>
+                    <li>Wood Release</li>
+                    <li>Sage Mode</li>
+                    <li>Healing</li>
+                    <li>Wood Golem</li>
+                    <li>Thousand-Handed Statue</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="battle-story">
+
+            <p>
+                Their final battle at the Valley of the End
+                became one of the defining conflicts in shinobi
+                history.
+            </p>
+
+            <p>
+                Madara arrived with the Nine-Tails under his
+                control while Hashirama fought to protect the
+                village and his ideals.
+            </p>
+
+            <p>
+                Hashirama ultimately won the battle, but Madara's
+                ambition survived and became part of a much larger
+                plan.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SHINOBI ALLIANCE
+    ========================== -->
+
+    <section id="war" class="war-section">
+
+        <div class="war-overlay"></div>
+
+        <div class="war-content">
+
+            <p class="eyebrow">
+                FOURTH SHINOBI WORLD WAR
+            </p>
+
+            <h2>
+                THE SHINOBI ALLIANCE
+            </h2>
+
+            <p>
+                Thousands of shinobi gathered together against
+                a common enemy.
+            </p>
+
+            <div class="war-stats">
+
+                <div>
+                    <strong>5</strong>
+                    <span>GREAT NATIONS</span>
+                </div>
+
+                <div>
+                    <strong>1</strong>
+                    <span>MADARA</span>
+                </div>
+
+                <div>
+                    <strong>∞</strong>
+                    <span>CHAOS</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TAILED BEASTS
+    ========================== -->
+
+    <section class="section beasts-section">
+
+        <div class="section-heading">
+
+            <p>POWER</p>
+
+            <h2>
+                THE TAILED BEASTS
+            </h2>
+
+        </div>
+
+
+        <div class="beast-image">
+
+            <img
+                src="assets/tailed-beasts.jpg"
+                alt="Naruto tailed beasts artwork"
+            >
+
+            <div class="beast-text">
+
+                <h3>
+                    CHAKRA BEASTS
+                </h3>
+
+                <p>
+                    Madara's control over enormous sources of
+                    chakra demonstrated the terrifying scale of
+                    his ambitions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         QUOTES
+    ========================== -->
+
+    <section id="quotes" class="section quotes-section">
+
+        <div class="section-heading">
+
+            <p>WORDS OF THE GHOST</p>
+
+            <h2>
+                MADARA'S PHILOSOPHY
+            </h2>
+
+        </div>
+
+
+        <div class="quote-grid">
+
+            <article class="quote-card">
+
+                <span>
+                    01
+                </span>
+
+                <blockquote>
+                    "Wake up to reality."
+                </blockquote>
+
+                <p>
+                    Madara's worldview is built around the
+                    harsh nature of reality and human conflict.
+                </p>
+
+            </article>
+
+
+            <article class="quote-card">
+
+                <span>
+                    02
+                </span>
+
+                <blockquote>
+                    "Hope is nothing but giving up."
+                </blockquote>
+
+                <p>
+                    A reflection of his extremely pessimistic
+                    philosophy.
+                </p>
+
+            </article>
+
+
+            <article class="quote-card">
+
+                <span>
+                    03
+                </span>
+
+                <blockquote>
+                    "In this world, wherever there is light,
+                    there are also shadows."
+                </blockquote>
+
+                <p>
+                    Madara viewed peace and conflict as two
+                    sides of the same existence.
+                </p>
+
+            </article>
+
+
+            <article class="quote-card">
+
+                <span>
+                    04
+                </span>
+
+                <blockquote>
+                    "The longer you live, the more you realize
+                    reality is only pain."
+                </blockquote>
+
+                <p>
+                    His experiences shaped his belief that the
+                    shinobi world could never achieve lasting
+                    peace naturally.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ROAST SECTION
+    ========================== -->
+
+    <section id="roasts" class="roast-section">
+
+        <div class="section-heading">
+
+            <p>THE UCHIHA'S GREATEST WEAPON</p>
+
+            <h2>
+                MADARA ROASTS EVERYONE
+            </h2>
+
+        </div>
+
+
+        <div class="roast-box">
+
+            <div class="roast-character">
+
+                <img
+                    src="assets/madara-eyes.webp"
+                    alt="Madara artwork"
+                >
+
+            </div>
+
+
+            <div class="roast-content">
+
+                <p class="roast-target">
+                    TARGET:
+                </p>
+
+                <h3 id="target">
+                    THE SHINOBI ALLIANCE
+                </h3>
+
+                <p id="roastText">
+                    You brought an entire army because apparently
+                    one person was not enough to challenge me.
+                </p>
+
+                <button id="roastButton">
+                    NEXT ROAST
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABILITIES
+    ========================== -->
+
+    <section class="section abilities">
+
+        <div class="section-heading">
+
+            <p>ARSENAL</p>
+
+            <h2>
+                MADARA'S ABILITIES
+            </h2>
+
+        </div>
+
+
+        <div class="ability-grid">
+
+            <div class="ability">
+                <span>01</span>
+                <h3>SHARINGAN</h3>
+                <p>
+                    Perception, prediction and powerful
+                    genjutsu capabilities.
+                </p>
+            </div>
+
+
+            <div class="ability">
+                <span>02</span>
+                <h3>SUSANOO</h3>
+                <p>
+                    A gigantic chakra warrior capable of
+                    overwhelming massive battlefields.
+                </p>
+            </div>
+
+
+            <div class="ability">
+                <span>03</span>
+                <h3>METEORS</h3>
+                <p>
+                    Madara's legendary battlefield entrance
+                    involved calling down enormous meteors.
+                </p>
+            </div>
+
+
+            <div class="ability">
+                <span>04</span>
+                <h3>RINNEGAN</h3>
+                <p>
+                    An evolution of ocular power that granted
+                    access to devastating techniques.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h2>
+            UCHIHA MADARA
+        </h2>
+
+        <p>
+            THE GHOST OF THE UCHIHA
+        </p>
+
+        <span>
+            Fan-made Naruto themed website
+        </span>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script src="script.js"></script>
 
 </body>
+
 </html>

@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap');
+@import url(
+    'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800;900&family=Rajdhani:wght@400;600;700&display=swap'
+);
 
 
 * {
@@ -9,404 +11,373 @@
 
 
 :root {
-    --black: #050505;
-    --dark: #0d0d0d;
-    --paper: #d8d2bd;
-    --paper-dark: #aaa58f;
-    --red: #b30000;
-    --bright-red: #ff1616;
-    --gray: #777;
+    --black: #030303;
+    --dark: #080808;
+    --dark-red: #360000;
+    --red: #a90000;
+    --bright-red: #ff1717;
+    --blood: #6e0000;
+    --white: #eeeeee;
+    --gray: #888;
+}
+
+
+html {
+    scroll-behavior: smooth;
 }
 
 
 body {
-    min-height: 100vh;
+    background: var(--black);
 
-    background:
-        radial-gradient(
-            circle at center,
-            #191919 0%,
-            #080808 50%,
-            #000 100%
-        );
+    color: var(--white);
 
-    color: white;
-
-    font-family: "Special Elite", monospace;
+    font-family: "Rajdhani", sans-serif;
 
     overflow-x: hidden;
 }
 
 
-/* -----------------------------
+/* =========================
    BACKGROUND
------------------------------- */
+========================= */
 
-.rain {
+body::before {
+    content: "";
+
     position: fixed;
 
     inset: 0;
 
     pointer-events: none;
 
-    opacity: 0.18;
+    z-index: -2;
 
-    background-image:
-        linear-gradient(
-            110deg,
-            transparent 40%,
-            rgba(255,255,255,0.15) 50%,
-            transparent 60%
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(150, 0, 0, 0.15),
+            transparent 45%
         );
-
-    background-size: 8px 40px;
-
-    animation: rainMove 0.35s linear infinite;
 }
 
 
-@keyframes rainMove {
-
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 8px 40px;
-    }
-}
-
-
-.particles {
+.stars {
     position: fixed;
 
     inset: 0;
 
     pointer-events: none;
+
+    z-index: -1;
 
     background-image:
         radial-gradient(
-            circle,
-            rgba(255,0,0,0.4) 1px,
+            white 1px,
             transparent 1px
         );
 
-    background-size: 80px 80px;
+    background-size: 100px 100px;
 
-    animation: particlesMove 10s linear infinite;
+    opacity: 0.18;
+
+    animation: starsMove 20s linear infinite;
 }
 
 
-@keyframes particlesMove {
+@keyframes starsMove {
 
     from {
         transform: translateY(0);
     }
 
     to {
-        transform: translateY(-80px);
+        transform: translateY(-100px);
     }
 }
 
 
-/* -----------------------------
-   MAIN
------------------------------- */
+/* EMBERS */
 
-.container {
-    position: relative;
+.embers {
+    position: fixed;
 
-    width: min(1100px, 92%);
+    inset: 0;
 
-    margin: auto;
+    pointer-events: none;
 
-    padding: 60px 0;
+    z-index: 10;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255, 40, 20, 0.8) 1px,
+            transparent 2px
+        );
+
+    background-size: 150px 150px;
+
+    animation: emberMove 12s linear infinite;
+
+    opacity: 0.3;
 }
 
 
-/* -----------------------------
-   HEADER
------------------------------- */
+@keyframes emberMove {
 
-.header {
-    text-align: center;
+    from {
+        transform: translateY(100px);
+    }
 
-    margin-bottom: 50px;
+    to {
+        transform: translateY(-200px);
+    }
 }
 
 
-.subtitle {
-    color: var(--red);
+/* =========================
+   NAVIGATION
+========================= */
 
-    letter-spacing: 7px;
+nav {
+    position: fixed;
 
-    font-size: 12px;
+    top: 0;
 
-    margin-bottom: 15px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 20px 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 50;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.95),
+            transparent
+        );
+
+    backdrop-filter: blur(5px);
 }
 
 
-h1 {
-    font-family: "Creepster", cursive;
+.logo {
+    font-family: Cinzel, serif;
 
-    font-size: clamp(70px, 13vw, 150px);
+    font-weight: 800;
 
-    line-height: 0.8;
-
-    letter-spacing: 5px;
-
-    color: #eee;
-
-    text-shadow:
-        5px 5px 0 #222,
-        0 0 30px rgba(255,0,0,0.2);
-
-    animation: titlePulse 3s ease-in-out infinite;
+    letter-spacing: 3px;
 }
 
 
-h1 span {
+.logo span {
     color: var(--bright-red);
 }
 
 
-@keyframes titlePulse {
-
-    0%,
-    100% {
-        text-shadow:
-            5px 5px 0 #222,
-            0 0 15px rgba(255,0,0,0.1);
-    }
-
-    50% {
-        text-shadow:
-            5px 5px 0 #222,
-            0 0 40px rgba(255,0,0,0.6);
-    }
-}
-
-
-.quote {
-    margin-top: 25px;
-
-    color: #777;
-
-    font-size: 13px;
-
-    font-style: italic;
-}
-
-
-/* -----------------------------
-   NOTEBOOK
------------------------------- */
-
-.notebook {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    min-height: 500px;
-
-    max-width: 900px;
-
-    margin: auto;
-
-    box-shadow:
-        0 30px 70px rgba(0,0,0,0.8),
-        0 0 50px rgba(150,0,0,0.15);
-
-    transform: rotate(-1deg);
-
-    transition: transform 0.4s ease;
-}
-
-
-.notebook:hover {
-    transform: rotate(0deg) scale(1.01);
-}
-
-
-/* LEFT PAGE */
-
-.notebook-cover {
-    position: relative;
-
-    padding: 60px 45px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #111,
-            #050505
-        );
-
-    border: 2px solid #292929;
-
+.nav-links {
     display: flex;
 
-    flex-direction: column;
+    gap: 30px;
+}
+
+
+.nav-links a {
+    color: #aaa;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+
+.nav-links a:hover {
+    color: var(--bright-red);
+
+    text-shadow:
+        0 0 10px red;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
 
     align-items: center;
 
     justify-content: center;
 
-    text-align: center;
+    padding: 100px 8%;
+
+    overflow: hidden;
 }
 
 
-.notebook-cover h2 {
-    font-family: "Creepster", cursive;
+.hero-image {
+    position: absolute;
 
-    font-size: 65px;
+    inset: 0;
 
-    color: #ddd;
-
-    letter-spacing: 3px;
+    z-index: -1;
 }
 
 
-.notebook-cover p {
-    color: #888;
+.hero-image::after {
+    content: "";
 
-    margin-top: 20px;
+    position: absolute;
 
-    letter-spacing: 4px;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #000 0%,
+            rgba(0,0,0,0.75) 40%,
+            rgba(0,0,0,0.2),
+            #000
+        );
 }
 
 
-.cross {
-    color: var(--red);
+.hero-image img {
+    width: 100%;
 
-    font-size: 35px;
+    height: 100%;
 
-    margin-bottom: 15px;
+    object-fit: cover;
 
-    animation: spin 8s linear infinite;
+    filter:
+        grayscale(0.8)
+        contrast(1.3)
+        brightness(0.5);
+
+    transform: scale(1.05);
+
+    animation: heroZoom 12s ease-in-out infinite alternate;
 }
 
 
-@keyframes spin {
+@keyframes heroZoom {
+
+    from {
+        transform: scale(1.05);
+    }
+
     to {
-        transform: rotate(360deg);
+        transform: scale(1.15);
     }
 }
 
 
-.rule {
-    width: 80%;
+.hero-content {
+    max-width: 800px;
 
-    height: 1px;
+    text-align: center;
 
-    background: #444;
+    position: relative;
 
-    margin: 25px 0;
+    z-index: 3;
 }
 
 
-.small-text {
-    max-width: 300px;
+.eyebrow {
+    color: var(--bright-red);
 
-    font-size: 12px;
+    letter-spacing: 8px;
 
-    line-height: 1.8;
+    font-size: 13px;
 
-    letter-spacing: 0 !important;
-
-    color: #777 !important;
+    margin-bottom: 20px;
 }
 
 
-/* RIGHT PAGE */
+.hero h1 {
+    font-family: Cinzel, serif;
 
-.notebook-page {
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 31px,
-            rgba(0,0,0,0.12) 32px
-        ),
-        var(--paper);
+    font-size: clamp(60px, 12vw, 150px);
 
-    color: #111;
+    line-height: 0.85;
 
-    padding: 60px 45px;
+    letter-spacing: 5px;
 
+    font-weight: 900;
+
+    text-shadow:
+        0 10px 40px black;
+}
+
+
+.hero h1 span {
+    display: block;
+
+    color: var(--bright-red);
+
+    text-shadow:
+        0 0 30px rgba(255,0,0,0.5);
+}
+
+
+.hero-description {
+    color: #aaa;
+
+    margin: 35px auto;
+
+    max-width: 550px;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+}
+
+
+.hero-buttons {
     display: flex;
 
-    flex-direction: column;
-
     justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
 }
 
 
-.notebook-page h3 {
-    font-family: "Creepster", cursive;
+.btn {
+    display: inline-block;
 
-    font-size: 45px;
+    padding: 15px 25px;
 
-    letter-spacing: 3px;
+    border: 1px solid #555;
 
-    margin-bottom: 10px;
-}
-
-
-.instruction {
-    color: #555;
-
-    font-size: 12px;
-
-    margin-bottom: 25px;
-}
-
-
-input {
-    width: 100%;
-
-    border: none;
-
-    border-bottom: 2px solid #111;
-
-    background: transparent;
-
-    padding: 15px 5px;
-
-    font-family: "Special Elite", monospace;
-
-    font-size: 20px;
-
-    outline: none;
-
-    color: #111;
-}
-
-
-input::placeholder {
-    color: #777;
-}
-
-
-input:focus {
-    border-color: var(--red);
-}
-
-
-button {
-    margin-top: 25px;
-
-    padding: 15px 20px;
-
-    border: 2px solid #111;
-
-    background: #111;
+    background: rgba(0,0,0,0.6);
 
     color: white;
 
-    font-family: "Special Elite", monospace;
+    text-decoration: none;
 
-    letter-spacing: 2px;
+    font-family: Rajdhani;
+
+    letter-spacing: 3px;
 
     cursor: pointer;
 
@@ -414,286 +385,517 @@ button {
 }
 
 
-button:hover {
+.btn:hover {
+    border-color: var(--bright-red);
+
     background: var(--red);
 
+    box-shadow:
+        0 0 30px rgba(255,0,0,0.4);
+}
+
+
+.btn.red {
+    background: var(--dark-red);
+
     border-color: var(--red);
+}
+
+
+/* =========================
+   SHARINGAN
+========================= */
+
+.sharingan {
+    position: absolute;
+
+    right: 7%;
+
+    bottom: 10%;
+
+    width: 130px;
+
+    height: 130px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #050505 0 12%,
+            #d50000 13% 28%,
+            #350000 29% 100%
+        );
+
+    border: 5px solid #111;
 
     box-shadow:
-        0 0 25px rgba(255,0,0,0.4);
+        0 0 30px red;
 
-    transform: translateY(-2px);
+    opacity: 0;
+
+    transform: scale(0);
+
+    transition: 0.6s;
+
+    z-index: 5;
 }
 
 
-.result {
-    margin-top: 25px;
+.sharingan.active {
+    opacity: 1;
 
-    min-height: 40px;
+    transform: scale(1);
 
-    color: #555;
-
-    font-size: 13px;
+    animation: sharinganSpin 5s linear infinite;
 }
 
 
-.result.active {
-    color: #8b0000;
-
-    animation: shake 0.4s;
-}
-
-
-@keyframes shake {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-5px);
-    }
-
-    50% {
-        transform: translateX(5px);
-    }
-
-    75% {
-        transform: translateX(-5px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-
-/* -----------------------------
-   EYES / SHINIGAMI SECTION
------------------------------- */
-
-.character {
-    max-width: 900px;
-
-    margin: 100px auto 60px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 40px;
-
-    padding: 40px;
-
-    border-top: 1px solid #333;
-
-    border-bottom: 1px solid #333;
-}
-
-
-.character-text {
-    text-align: center;
-
-    max-width: 450px;
-}
-
-
-.character-text h2 {
-    font-family: "Creepster", cursive;
-
-    font-size: 55px;
-
-    margin: 10px 0;
-}
-
-
-.character-text p {
-    color: #777;
-
-    line-height: 1.7;
-
-    font-size: 13px;
-}
-
-
-.red-label {
-    color: var(--bright-red) !important;
-
-    letter-spacing: 5px;
-
-    font-size: 11px !important;
-}
-
-
-/* EYES */
-
-.eye {
-    width: 100px;
-
-    height: 60px;
-
-    border-radius: 50%;
-
-    border: 3px solid #555;
-
-    background: #eee;
-
-    position: relative;
-
-    overflow: hidden;
-
-    animation: eyeGlow 2s infinite alternate;
-}
-
-
-.eye::before {
-    content: "";
-
+.sharingan-center {
     position: absolute;
 
-    width: 45px;
+    width: 25px;
 
-    height: 45px;
-
-    background: #900;
-
-    border-radius: 50%;
-
-    top: 50%;
-
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-}
-
-
-.pupil {
-    position: absolute;
-
-    width: 15px;
-
-    height: 15px;
+    height: 25px;
 
     background: black;
 
     border-radius: 50%;
 
-    top: 50%;
-
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    top: 50%;
 
-    z-index: 2;
+    transform: translate(-50%, -50%);
 }
 
 
-@keyframes eyeGlow {
+.tomoe {
+    position: absolute;
 
-    from {
-        box-shadow: 0 0 5px red;
-    }
+    width: 20px;
+
+    height: 30px;
+
+    background: black;
+
+    border-radius: 50% 50% 50% 0;
+
+}
+
+
+.t1 {
+    top: 15px;
+
+    left: 55px;
+
+    transform: rotate(20deg);
+}
+
+
+.t2 {
+    bottom: 20px;
+
+    left: 15px;
+
+    transform: rotate(-100deg);
+}
+
+
+.t3 {
+    bottom: 20px;
+
+    right: 15px;
+
+    transform: rotate(100deg);
+}
+
+
+@keyframes sharinganSpin {
 
     to {
-        box-shadow: 0 0 30px red;
+        transform: rotate(360deg);
     }
 }
 
 
-/* -----------------------------
-   FOOTER
------------------------------- */
+/* =========================
+   INTRO
+========================= */
 
-footer {
+.intro {
     text-align: center;
 
-    color: #444;
+    padding: 100px 20px;
 
-    font-size: 10px;
+    background:
+        linear-gradient(
+            #000,
+            #170000,
+            #000
+        );
+}
+
+
+.intro p {
+    font-family: Cinzel, serif;
+
+    font-size: clamp(25px, 5vw, 55px);
+
+    font-style: italic;
+}
+
+
+.intro span {
+    display: block;
+
+    margin-top: 20px;
+
+    color: var(--bright-red);
+
+    letter-spacing: 5px;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 120px 8%;
+
+    max-width: 1400px;
+
+    margin: auto;
+}
+
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+
+.section-heading p {
+    color: var(--bright-red);
+
+    letter-spacing: 6px;
+
+    font-size: 12px;
+}
+
+
+.section-heading h2 {
+    font-family: Cinzel, serif;
+
+    font-size: clamp(35px, 6vw, 70px);
+
+    margin-top: 15px;
+}
+
+
+/* =========================
+   LORE
+========================= */
+
+.lore-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.lore-card {
+    position: relative;
+
+    padding: 40px 25px;
+
+    min-height: 300px;
+
+    border: 1px solid #252525;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101010,
+            #050505
+        );
+
+    transition: 0.4s;
+
+    overflow: hidden;
+}
+
+
+.lore-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    height: 3px;
+
+    width: 0;
+
+    background: var(--bright-red);
+
+    transition: 0.4s;
+}
+
+
+.lore-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #600000;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.7);
+}
+
+
+.lore-card:hover::before {
+    width: 100%;
+}
+
+
+.number {
+    color: var(--bright-red);
+
+    font-size: 12px;
 
     letter-spacing: 3px;
+}
+
+
+.lore-card h3 {
+    font-family: Cinzel, serif;
+
+    font-size: 25px;
+
+    margin: 30px 0 15px;
+}
+
+
+.lore-card p {
+    color: #888;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   FULL IMAGE
+========================= */
+
+.full-image {
+    height: 80vh;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.full-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(1)
+        contrast(1.4)
+        brightness(0.45);
+
+    transition: 1s;
+}
+
+
+.full-image:hover img {
+    transform: scale(1.06);
+
+    filter:
+        grayscale(0.5)
+        contrast(1.3)
+        brightness(0.5);
+}
+
+
+.image-caption {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,0.7)
+        );
+}
+
+
+.image-caption p {
+    font-size: 30px;
+
+    font-style: italic;
+}
+
+
+.image-caption h2 {
+    font-family: Cinzel, serif;
+
+    color: var(--bright-red);
+
+    font-size: clamp(40px, 8vw, 100px);
+
+    text-shadow:
+        0 0 30px black;
+}
+
+
+/* =========================
+   BATTLE
+========================= */
+
+.hashirama-section {
+    max-width: 1200px;
+}
+
+
+.battle {
+    display: grid;
+
+    grid-template-columns: 1fr 150px 1fr;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.fighter {
+    padding: 50px;
+
+    border: 1px solid #333;
+
+    min-height: 400px;
+
+    position: relative;
+}
+
+
+.madara-side {
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(150,0,0,0.3),
+            transparent
+        );
+}
+
+
+.hashirama-side {
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(0,100,50,0.15),
+            transparent
+        );
+}
+
+
+.fighter-number {
+    color: #666;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+}
+
+
+.fighter h3 {
+    font-family: Cinzel, serif;
+
+    font-size: 50px;
+
+    margin-top: 30px;
+}
+
+
+.madara-side h3 {
+    color: var(--bright-red);
+}
+
+
+.hashirama-side h3 {
+    color: #56bd70;
+}
+
+
+.fighter p {
+    color: #666;
+
+    letter-spacing: 5px;
+}
+
+
+.fighter ul {
+    margin-top: 30px;
+
+    list-style: none;
+
+    color: #aaa;
 
     line-height: 2;
 }
 
 
-/* -----------------------------
-   DEATH OVERLAY
------------------------------- */
+.fighter li::before {
+    content: "◆";
 
-.death-overlay {
-    position: fixed;
+    margin-right: 10px;
 
-    inset: 0;
+    color: var(--bright-red);
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(100,0,0,0.7),
-            rgba(0,0,0,0.98)
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transition: 0.5s;
-
-    z-index: 100;
+    font-size: 8px;
 }
 
 
-.death-overlay.show {
-    opacity: 1;
+.versus {
+    font-family: Cinzel, serif;
 
-    visibility: visible;
-}
+    font-size: 45px;
 
-
-.death-message {
     text-align: center;
-
-    animation: deathAppear 0.7s ease;
-}
-
-
-@keyframes deathAppear {
-
-    from {
-        transform: scale(0.5) rotate(-5deg);
-
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1) rotate(0);
-
-        opacity: 1;
-    }
-}
-
-
-.skull {
-    font-size: 90px;
 
     color: var(--bright-red);
 
     text-shadow:
         0 0 30px red;
 
-    animation: skullPulse 1s infinite alternate;
+    animation: versusPulse 1.5s infinite alternate;
 }
 
 
-@keyframes skullPulse {
+@keyframes versusPulse {
 
     from {
         transform: scale(1);
@@ -705,64 +907,545 @@ footer {
 }
 
 
-.death-message h2 {
-    font-family: "Creepster", cursive;
+.battle-story {
+    max-width: 800px;
 
-    font-size: 80px;
+    margin: 70px auto 0;
 
-    color: white;
+    text-align: center;
 
-    word-break: break-word;
+    color: #888;
 
-    max-width: 90vw;
+    line-height: 1.8;
 
-    text-shadow:
-        0 0 30px red;
+    font-size: 17px;
 }
 
 
-.death-message p {
+.battle-story p {
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   WAR
+========================= */
+
+.war-section {
+    min-height: 650px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0.9)
+        ),
+        url("assets/tailed-beasts.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+}
+
+
+.war-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.war-content h2 {
+    font-family: Cinzel, serif;
+
+    font-size: clamp(40px, 8vw, 100px);
+
+    margin: 20px 0;
+}
+
+
+.war-content > p:not(.eyebrow) {
     color: #aaa;
+
+    font-size: 18px;
+}
+
+
+.war-stats {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 70px;
+
+    margin-top: 50px;
+}
+
+
+.war-stats div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.war-stats strong {
+    color: var(--bright-red);
+
+    font-family: Cinzel, serif;
+
+    font-size: 60px;
+}
+
+
+.war-stats span {
+    color: #777;
+
+    letter-spacing: 3px;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   BEASTS
+========================= */
+
+.beast-image {
+    position: relative;
+
+    border: 1px solid #333;
+
+    overflow: hidden;
+}
+
+
+.beast-image img {
+    width: 100%;
+
+    display: block;
+
+    filter:
+        saturate(0.7)
+        contrast(1.2);
+}
+
+
+.beast-text {
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+
+    padding: 60px 40px 35px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,0.95)
+        );
+}
+
+
+.beast-text h3 {
+    font-family: Cinzel, serif;
+
+    font-size: 40px;
+}
+
+
+.beast-text p {
+    color: #aaa;
+
+    max-width: 600px;
+}
+
+
+/* =========================
+   QUOTES
+========================= */
+
+.quote-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+.quote-card {
+    padding: 45px;
+
+    background: #0b0b0b;
+
+    border-left: 3px solid var(--red);
+
+    transition: 0.4s;
+}
+
+
+.quote-card:hover {
+    transform: translateX(8px);
+
+    box-shadow:
+        -15px 0 40px rgba(150,0,0,0.2);
+}
+
+
+.quote-card span {
+    color: var(--red);
+
+    letter-spacing: 4px;
+}
+
+
+.quote-card blockquote {
+    font-family: Cinzel, serif;
+
+    font-size: 25px;
+
+    margin: 25px 0;
+
+    line-height: 1.4;
+}
+
+
+.quote-card p {
+    color: #777;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   ROASTS
+========================= */
+
+.roast-section {
+    padding: 120px 8%;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #240000,
+            #030303 60%
+        );
+}
+
+
+.roast-box {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    border: 1px solid #400000;
+
+    background: #080808;
+
+    box-shadow:
+        0 0 70px rgba(150,0,0,0.15);
+}
+
+
+.roast-character {
+    overflow: hidden;
+}
+
+
+.roast-character img {
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 500px;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(0.8)
+        contrast(1.3);
+
+    transition: 0.6s;
+}
+
+
+.roast-box:hover .roast-character img {
+    transform: scale(1.04);
+
+    filter:
+        grayscale(0.3)
+        contrast(1.3);
+}
+
+
+.roast-content {
+    padding: 70px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.roast-target {
+    color: var(--bright-red);
 
     letter-spacing: 4px;
 
-    margin-top: 10px;
+    font-size: 12px;
 }
 
 
-.death-message button {
-    background: transparent;
+.roast-content h3 {
+    font-family: Cinzel, serif;
 
-    border-color: #666;
+    font-size: 40px;
+
+    margin: 15px 0 30px;
 }
 
 
-/* -----------------------------
-   MOBILE
------------------------------- */
+#roastText {
+    color: #aaa;
 
-@media (max-width: 700px) {
+    font-size: 20px;
 
-    .notebook {
+    line-height: 1.6;
+
+    min-height: 100px;
+}
+
+
+#roastButton {
+    margin-top: 35px;
+
+    padding: 15px;
+
+    border: 1px solid var(--red);
+
+    background: #240000;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: Rajdhani;
+
+    letter-spacing: 3px;
+
+    transition: 0.3s;
+}
+
+
+#roastButton:hover {
+    background: var(--red);
+
+    box-shadow:
+        0 0 30px rgba(255,0,0,0.4);
+}
+
+
+/* =========================
+   ABILITIES
+========================= */
+
+.ability-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.ability {
+    padding: 40px 25px;
+
+    background: #090909;
+
+    border-bottom: 2px solid #300000;
+
+    transition: 0.4s;
+}
+
+
+.ability:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--bright-red);
+}
+
+
+.ability span {
+    color: var(--red);
+}
+
+
+.ability h3 {
+    font-family: Cinzel, serif;
+
+    margin: 25px 0 15px;
+}
+
+
+.ability p {
+    color: #777;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 80px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid #222;
+
+    background: #020202;
+}
+
+
+footer h2 {
+    font-family: Cinzel, serif;
+
+    color: var(--bright-red);
+
+    letter-spacing: 5px;
+}
+
+
+footer p {
+    color: #777;
+
+    margin: 15px;
+}
+
+
+footer span {
+    color: #444;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+
+    .lore-grid,
+    .ability-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .battle {
         grid-template-columns: 1fr;
-
-        transform: none;
     }
 
-    .notebook-cover {
-        min-height: 350px;
+
+    .versus {
+        margin: 10px;
     }
 
-    .notebook-page {
-        min-height: 400px;
+
+    .roast-box {
+        grid-template-columns: 1fr;
     }
 
-    .character {
-        flex-direction: column;
+
+    .quote-grid {
+        grid-template-columns: 1fr;
     }
 
-    .death-message h2 {
-        font-size: 50px;
+}
+
+
+@media (max-width: 600px) {
+
+    .lore-grid,
+    .ability-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero {
+        padding: 100px 5%;
+    }
+
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+
+    .sharingan {
+        width: 80px;
+
+        height: 80px;
+
+        right: 5%;
+
+        bottom: 5%;
+    }
+
+
+    .fighter {
+        padding: 30px;
+    }
+
+
+    .fighter h3 {
+        font-size: 35px;
+    }
+
+
+    .war-stats {
+        gap: 25px;
+    }
+
+
+    .war-stats strong {
+        font-size: 40px;
+    }
+
+
+    .roast-content {
+        padding: 35px;
     }
 
 }
