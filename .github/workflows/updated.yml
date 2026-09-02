@@ -1,0 +1,688 @@
+# ============================================================
+# MADARA UCHIHA — UI/UX DESIGN CONFIGURATION
+# Naruto-inspired fan website
+# ============================================================
+
+site:
+  title: "Madara Uchiha | The Ghost of the Uchiha"
+  description: "An immersive interactive lore experience dedicated to Madara Uchiha."
+  theme: "dark-war"
+  language: "en"
+
+  goals:
+    - "Create an immersive Madara Uchiha experience"
+    - "Make the lore easy to explore"
+    - "Use strong visual hierarchy"
+    - "Make interactions feel powerful without becoming distracting"
+    - "Work smoothly on desktop, tablet, and mobile"
+
+# ============================================================
+# DESIGN SYSTEM
+# ============================================================
+
+design_system:
+
+  colors:
+    background:
+      primary: "#030303"
+      secondary: "#080808"
+      surface: "#101010"
+      elevated: "#151515"
+
+    red:
+      dark: "#360000"
+      primary: "#A90000"
+      bright: "#FF1717"
+      glow: "#FF0000"
+      blood: "#6E0000"
+
+    neutral:
+      white: "#EEEEEE"
+      light: "#CCCCCC"
+      muted: "#888888"
+      dark: "#333333"
+      border: "#252525"
+
+    hashirama:
+      primary: "#56BD70"
+      dark: "#12351D"
+
+  typography:
+
+    heading:
+      family: "Cinzel"
+      weights:
+        - 600
+        - 800
+        - 900
+
+    body:
+      family: "Rajdhani"
+      weights:
+        - 400
+        - 600
+        - 700
+
+  spacing:
+    xs: "8px"
+    sm: "16px"
+    md: "24px"
+    lg: "40px"
+    xl: "70px"
+    section: "120px"
+
+  effects:
+    red_glow:
+      shadow: "0 0 30px rgba(255, 0, 0, 0.45)"
+
+    card_shadow:
+      shadow: "0 20px 50px rgba(179, 0, 0, 0.15)"
+
+    cinematic_overlay:
+      background: "linear-gradient(90deg, #000 0%, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.2), #000)"
+
+# ============================================================
+# UX PRINCIPLES
+# ============================================================
+
+ux:
+
+  principles:
+    - "Visual hierarchy before decoration"
+    - "One primary action per major section"
+    - "Use animation to provide feedback"
+    - "Keep navigation predictable"
+    - "Do not overwhelm the user with red effects"
+    - "Make lore readable before adding cinematic effects"
+    - "Every interactive element should have visible feedback"
+
+  accessibility:
+    keyboard_navigation: true
+    visible_focus_states: true
+    reduced_motion_support: true
+    descriptive_image_alt_text: true
+    sufficient_color_contrast: true
+
+  responsive:
+    mobile_breakpoint: "600px"
+    tablet_breakpoint: "900px"
+    desktop_max_width: "1400px"
+
+# ============================================================
+# NAVIGATION
+# ============================================================
+
+navigation:
+
+  type: "fixed"
+
+  logo:
+    japanese: "うちは"
+    english: "MADARA"
+
+  links:
+    - id: "home"
+      label: "Home"
+      target: "#home"
+
+    - id: "lore"
+      label: "Lore"
+      target: "#lore"
+
+    - id: "abilities"
+      label: "Abilities"
+      target: "#abilities"
+
+    - id: "hashirama"
+      label: "Hashirama"
+      target: "#hashirama"
+
+    - id: "war"
+      label: "Fourth War"
+      target: "#war"
+
+    - id: "roasts"
+      label: "Roasts"
+      target: "#roasts"
+
+  behavior:
+    sticky: true
+    blur_background: true
+    scroll_shadow: true
+    mobile_menu: true
+
+# ============================================================
+# HERO
+# ============================================================
+
+hero:
+
+  id: "home"
+
+  eyebrow: "THE GHOST OF THE UCHIHA"
+
+  title:
+    line_1: "MADARA"
+    line_2: "UCHIHA"
+
+  description:
+    "One man. One vision. An entire shinobi world standing in his way."
+
+  background:
+    image: "assets/images/madara-hero.webp"
+    position: "center"
+    overlay: "cinematic"
+
+  actions:
+
+    primary:
+      label: "ENTER THE LEGEND"
+      target: "#lore"
+
+    secondary:
+      label: "ACTIVATE SHARINGAN"
+      action: "activateSharingan"
+
+  effects:
+    parallax: true
+    cinematic_zoom: true
+    particles: true
+    red_vignette: true
+
+# ============================================================
+# LORE
+# ============================================================
+
+lore:
+
+  title: "THE LORE OF MADARA"
+  eyebrow: "THE LEGEND"
+
+  cards:
+
+    - id: "child-of-war"
+      number: "01"
+      title: "CHILD OF WAR"
+      image: "assets/images/madara-child.webp"
+      text: >
+        Born during the era of the warring states, Madara experienced
+        the brutality of war from childhood. The loss of his brothers
+        shaped his hatred of endless conflict.
+
+    - id: "hashirama"
+      number: "02"
+      title: "THE RIVAL"
+      image: "assets/images/madara-hashirama.webp"
+      text: >
+        Madara formed a powerful friendship and rivalry with Hashirama Senju.
+        Their opposing visions eventually became one of the defining conflicts
+        of the shinobi world.
+
+    - id: "uchiha-leader"
+      number: "03"
+      title: "UCHIHA LEADER"
+      image: "assets/images/madara-uchiha-leader.webp"
+      text: >
+        Madara became the most influential leader of the Uchiha clan.
+        His Sharingan, combat ability, and strategic intelligence made him
+        one of the most feared shinobi of his era.
+
+    - id: "konoha"
+      number: "04"
+      title: "THE FOUNDING OF KONOHA"
+      image: "assets/images/konoha-founding.webp"
+      text: >
+        Madara and Hashirama temporarily united their clans and helped
+        establish Konohagakure. However, Madara remained suspicious that
+        peace would eventually fail.
+
+    - id: "valley-of-the-end"
+      number: "05"
+      title: "VALLEY OF THE END"
+      image: "assets/images/valley-of-the-end.webp"
+      text: >
+        Their conflict culminated in a legendary battle at the Valley of
+        the End. Madara was defeated, but his ambitions did not end there.
+
+    - id: "eye-of-the-moon"
+      number: "06"
+      title: "EYE OF THE MOON PLAN"
+      image: "assets/images/infinite-tsukuyomi.webp"
+      text: >
+        Madara sought to cast the Infinite Tsukuyomi and place the world
+        inside a dream where conflict would no longer exist.
+
+# ============================================================
+# TIMELINE
+# ============================================================
+
+timeline:
+
+  title: "THE PATH OF MADARA"
+
+  events:
+
+    - era: "CHILDHOOD"
+      title: "Born Into War"
+      description: "Madara grows up during the brutal era of warring clans."
+
+    - era: "YOUTH"
+      title: "Meeting Hashirama"
+      description: "Madara encounters Hashirama and develops a complicated friendship."
+
+    - era: "FOUNDATION"
+      title: "Konoha"
+      description: "The Uchiha and Senju cooperate to create Konohagakure."
+
+    - era: "CONFLICT"
+      title: "The Final Battle"
+      description: "Madara and Hashirama clash at the Valley of the End."
+
+    - era: "SHADOW"
+      title: "The Long Plan"
+      description: "Madara prepares a plan that will continue beyond his apparent death."
+
+    - era: "FOURTH WAR"
+      title: "Return of Madara"
+      description: "Madara returns to the battlefield and demonstrates overwhelming power."
+
+# ============================================================
+# ABILITIES
+# ============================================================
+
+abilities:
+
+  title: "THE POWER OF MADARA"
+
+  cards:
+
+    - name: "Sharingan"
+      category: "DOJUTSU"
+      description: >
+        The Sharingan grants Madara extraordinary perception,
+        predictive ability, and powerful visual techniques.
+
+    - name: "Mangekyo Sharingan"
+      category: "DOJUTSU"
+      description: >
+        Madara awakened the Mangekyo Sharingan and gained access
+        to extremely powerful ocular abilities.
+
+    - name: "Eternal Mangekyo"
+      category: "DOJUTSU"
+      description: >
+        By obtaining his brother Izuna's eyes, Madara acquired
+        the Eternal Mangekyo Sharingan.
+
+    - name: "Rinnegan"
+      category: "DOJUTSU"
+      description: >
+        Madara eventually awakened the Rinnegan through the combination
+        of Uchiha and Senju power.
+
+    - name: "Susanoo"
+      category: "NINJUTSU"
+      description: >
+        Madara could manifest an enormous Susanoo capable of devastating
+        attacks and immense defensive power.
+
+    - name: "Wood Release"
+      category: "NINJUTSU"
+      description: >
+        After acquiring Hashirama's power, Madara gained access to
+        Wood Release techniques.
+
+    - name: "Nine-Tails Control"
+      category: "CONTROL"
+      description: >
+        Madara demonstrated the ability to control Kurama using
+        the power of the Sharingan.
+
+    - name: "Meteor Technique"
+      category: "DESTRUCTION"
+      description: >
+        During the Fourth Shinobi World War, Madara demonstrated
+        an ability capable of bringing enormous meteors onto the battlefield.
+
+# ============================================================
+# SHARINGAN INTERACTION
+# ============================================================
+
+sharingan:
+
+  enabled: true
+
+  button:
+    activate: "ACTIVATE SHARINGAN"
+    deactivate: "DEACTIVATE"
+
+  animation:
+    rotation: "1080deg"
+    duration: "3s"
+    glow: true
+
+  screen_effects:
+    red_vignette: true
+    blur_background: true
+    dim_content: true
+
+  sound:
+    enabled: false
+    file: "assets/audio/sharingan.mp3"
+
+# ============================================================
+# MADARA VS HASHIRAMA
+# ============================================================
+
+hashirama_battle:
+
+  title: "MADARA VS HASHIRAMA"
+
+  madara:
+    name: "MADARA UCHIHA"
+    color: "#FF1717"
+
+    abilities:
+      - "Sharingan"
+      - "Mangekyo Sharingan"
+      - "Perfect Susanoo"
+      - "Kurama Control"
+      - "Rinnegan"
+
+  hashirama:
+    name: "HASHIRAMA SENJU"
+    color: "#56BD70"
+
+    abilities:
+      - "Wood Release"
+      - "Sage Mode"
+      - "Healing"
+      - "Wood Golem"
+      - "True Several Thousand Hands"
+
+  center:
+    text: "VS"
+    animation: "pulse"
+
+# ============================================================
+# FOURTH SHINOBI WORLD WAR
+# ============================================================
+
+war:
+
+  id: "war"
+
+  eyebrow: "THE FOURTH SHINOBI WORLD WAR"
+
+  title: "THE RETURN OF MADARA"
+
+  background:
+    image: "assets/images/madara-war.webp"
+    parallax: true
+
+  stats:
+
+    - value: "∞"
+      label: "AMBITION"
+
+    - value: "1"
+      label: "VISION"
+
+    - value: "100%"
+      label: "DOMINANCE"
+
+  content:
+    "Madara's return to the battlefield became one of the most overwhelming displays of power in the Fourth Shinobi World War."
+
+# ============================================================
+# TAILED BEASTS
+# ============================================================
+
+tailed_beasts:
+
+  title: "THE TAILED BEASTS"
+  eyebrow: "POWER"
+
+  image: "assets/images/tailed-beasts.webp"
+
+  heading: "CHAKRA MONSTERS"
+
+  description:
+    "The tailed beasts represent immense concentrations of chakra.
+    Madara's ability to control and manipulate them demonstrated
+    the scale of his power."
+
+# ============================================================
+# QUOTES
+# ============================================================
+
+quotes:
+
+  title: "WAKE UP TO REALITY"
+
+  cards:
+
+    - quote: "Wake up to reality."
+      context: "Madara's philosophy"
+
+    - quote: "In this world, wherever there is light, there are also shadows."
+      context: "Madara's worldview"
+
+    - quote: "The longer you live... the more you realize that reality is just made of pain."
+      context: "Madara's philosophy"
+
+# ============================================================
+# ROAST SYSTEM
+# ============================================================
+
+roasts:
+
+  title: "MADARA ROASTS EVERYONE"
+  eyebrow: "THE UCHIHA'S GREATEST WEAPON"
+
+  default_target: "THE FIVE KAGE"
+
+  items:
+
+    - target: "THE SHINOBI ALLIANCE"
+      text: "You brought an entire army because apparently one person was not enough."
+
+    - target: "ONOKI"
+      text: "What will you do about the second one, Ohnoki?"
+
+    - target: "THE FIVE KAGE"
+      text: "Would you like these clones to use Susanoo or not?"
+
+    - target: "THE BATTLEFIELD"
+      text: "Thousands of shinobi stood against Madara. He treated it like a warm-up."
+
+    - target: "HASHIRAMA"
+      text: "Even after all these years, you are still the one standing in my way."
+
+  animation:
+    type: "fade"
+    duration: "200ms"
+
+# ============================================================
+# IMAGE SYSTEM
+# ============================================================
+
+images:
+
+  directory: "assets/images"
+
+  gallery:
+
+    - file: "madara-hero.webp"
+      usage: "Hero background"
+      alt: "Madara Uchiha standing on the battlefield"
+
+    - file: "madara-child.webp"
+      usage: "Childhood lore"
+      alt: "Young Madara Uchiha"
+
+    - file: "madara-hashirama.webp"
+      usage: "Rivalry"
+      alt: "Madara and Hashirama"
+
+    - file: "valley-of-the-end.webp"
+      usage: "Major battle"
+      alt: "Madara and Hashirama at the Valley of the End"
+
+    - file: "madara-war.webp"
+      usage: "Fourth War"
+      alt: "Madara during the Fourth Shinobi World War"
+
+    - file: "madara-susanoo.webp"
+      usage: "Ability"
+      alt: "Madara using Susanoo"
+
+    - file: "madara-rinnegan.webp"
+      usage: "Ability"
+      alt: "Madara with the Rinnegan"
+
+    - file: "tailed-beasts.webp"
+      usage: "Tailed beasts"
+      alt: "The tailed beasts"
+
+# ============================================================
+# INTERACTIONS
+# ============================================================
+
+interactions:
+
+  scroll_reveal:
+    enabled: true
+    animation: "translateY"
+    distance: "30px"
+    duration: "700ms"
+    threshold: 0.15
+
+  hover_cards:
+    enabled: true
+    translate_y: "-8px"
+    border_glow: true
+
+  hero_parallax:
+    enabled: true
+    intensity: 15
+
+  image_hover:
+    enabled: true
+    scale: 1.06
+
+  smooth_scroll:
+    enabled: true
+
+# ============================================================
+# PERFORMANCE
+# ============================================================
+
+performance:
+
+  lazy_load_images: true
+  preload_hero_image: true
+  use_webp: true
+  compress_images: true
+
+  animations:
+    use_transform: true
+    use_opacity: true
+    avoid_layout_shift: true
+
+# ============================================================
+# MOBILE UX
+# ============================================================
+
+mobile:
+
+  navigation:
+    hamburger_menu: true
+
+  hero:
+    min_height: "90vh"
+    title_size: "clamp(48px, 14vw, 80px)"
+
+  grids:
+    lore: 1
+    abilities: 1
+    quotes: 1
+
+  battle:
+    layout: "stacked"
+
+  roast:
+    layout: "single-column"
+
+  sharingan:
+    size: "200px"
+
+# ============================================================
+# PROJECT STRUCTURE
+# ============================================================
+
+project:
+
+  structure:
+
+    root:
+      - "index.html"
+      - "style.css"
+      - "script.js"
+      - "madara-ui.yml"
+
+    assets:
+      images:
+        - "madara-hero.webp"
+        - "madara-child.webp"
+        - "madara-hashirama.webp"
+        - "valley-of-the-end.webp"
+        - "madara-war.webp"
+        - "madara-susanoo.webp"
+        - "madara-rinnegan.webp"
+        - "tailed-beasts.webp"
+
+      audio:
+        - "sharingan.mp3"
+
+# ============================================================
+# FINAL UX FLOW
+# ============================================================
+
+user_flow:
+
+  - step: 1
+    action: "User lands on hero"
+    experience: "Immediate cinematic Madara introduction"
+
+  - step: 2
+    action: "User clicks ENTER THE LEGEND"
+    experience: "Smooth scroll into lore"
+
+  - step: 3
+    action: "User explores lore cards"
+    experience: "Cards reveal historical information"
+
+  - step: 4
+    action: "User activates Sharingan"
+    experience: "Screen becomes red and Sharingan animation appears"
+
+  - step: 5
+    action: "User explores abilities"
+    experience: "Madara's powers are organized into readable cards"
+
+  - step: 6
+    action: "User reaches Hashirama section"
+    experience: "Interactive visual comparison"
+
+  - step: 7
+    action: "User reaches Fourth War"
+    experience: "Large cinematic image and statistics"
+
+  - step: 8
+    action: "User opens roast section"
+    experience: "Interactive Madara dialogue generator"
+
+  - step: 9
+    action: "User reaches footer"
+    experience: "Strong cinematic ending"
