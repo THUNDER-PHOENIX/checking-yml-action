@@ -1,124 +1,283 @@
-/* =========================
-   SHARINGAN ACTIVATION
-========================= */
+/* =====================================================
+   MOBILE NAVIGATION
+===================================================== */
 
-const sharinganBtn = document.getElementById("sharinganButton");
-const sharinganContainer = document.getElementById("sharinganContainer");
-const heroContent = document.querySelector(".hero-content");
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
-sharinganBtn.addEventListener("click", () => {
-    sharinganContainer.classList.toggle("active");
+menuToggle.addEventListener("click", () => {
 
-    if (sharinganContainer.classList.contains("active")) {
-        sharinganBtn.textContent = "DEACTIVATE";
-        heroContent.style.opacity = "0.1"; 
-        document.body.style.boxShadow = "inset 0 0 100px rgba(179,0,0,0.2)";
-    } else {
-        sharinganBtn.textContent = "ACTIVATE SHARINGAN";
-        heroContent.style.opacity = "1";
-        document.body.style.boxShadow = "none";
-    }
+    navLinks.classList.toggle("active");
+
 });
 
-/* =========================
-   MADARA ROASTS
-========================= */
 
-const target = document.getElementById("target");
-const roastText = document.getElementById("roastText");
-const roastButton = document.getElementById("roastButton");
+/* Close mobile menu after clicking */
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+/* =====================================================
+   SHARINGAN
+===================================================== */
+
+const sharinganButton =
+    document.getElementById("sharinganButton");
+
+const sharinganOverlay =
+    document.getElementById("sharinganOverlay");
+
+
+sharinganButton.addEventListener("click", () => {
+
+    const isActive =
+        sharinganOverlay.classList.toggle("active");
+
+    if (isActive) {
+
+        sharinganButton.textContent =
+            "DEACTIVATE SHARINGAN";
+
+        document.body.style.overflow = "hidden";
+
+    } else {
+
+        sharinganButton.textContent =
+            "ACTIVATE SHARINGAN";
+
+        document.body.style.overflow = "";
+
+    }
+
+});
+
+
+/* Clicking the Sharingan closes it */
+
+sharinganOverlay.addEventListener("click", () => {
+
+    sharinganOverlay.classList.remove("active");
+
+    sharinganButton.textContent =
+        "ACTIVATE SHARINGAN";
+
+    document.body.style.overflow = "";
+
+});
+
+
+/* =====================================================
+   ROAST MACHINE
+===================================================== */
 
 const roasts = [
-    {
-        target: "THE SHINOBI ALLIANCE",
-        text: "You brought an entire army because apparently one person was not enough to challenge me."
-    },
-    {
-        target: "ONOKI",
-        text: "What will you do about the second one, Ohnoki?"
-    },
-    {
-        target: "TSUNADE",
-        text: "You are a weak woman... Even Hashirama's medical ninjutsu is vastly superior to yours."
-    },
-    {
-        target: "NARUTO UZUMAKI",
-        text: "You have only temporary power. Wake up to reality."
-    },
+
     {
         target: "THE FIVE KAGE",
-        text: "Would you like these clones to use Susanoo or not?"
+        text:
+            "Would you like these clones to use Susanoo or not?"
     },
+
+    {
+        target: "ONOKI",
+        text:
+            "What will you do about the second one, Ohnoki?"
+    },
+
+    {
+        target: "THE SHINOBI ALLIANCE",
+        text:
+            "You brought an entire army because apparently one person was not enough."
+    },
+
+    {
+        target: "NARUTO UZUMAKI",
+        text:
+            "You still have much to learn about the reality of this world."
+    },
+
     {
         target: "THE BATTLEFIELD",
-        text: "The battlefield had thousands of shinobi. Madara treated it like a warm-up arena."
+        text:
+            "Thousands of shinobi stood against him, and Madara treated the battlefield like a warm-up."
     }
+
 ];
+
+
+const roastButton =
+    document.getElementById("roastButton");
+
+const roastTarget =
+    document.getElementById("roastTarget");
+
+const roastText =
+    document.getElementById("roastText");
+
 
 let roastIndex = 0;
 
+
 roastButton.addEventListener("click", () => {
-    roastIndex = (roastIndex + 1) % roasts.length;
-    const roast = roasts[roastIndex];
 
     roastText.style.opacity = "0";
-    target.style.opacity = "0";
+    roastTarget.style.opacity = "0";
 
     setTimeout(() => {
-        target.textContent = roast.target;
-        roastText.textContent = `"${roast.text}"`;
+
+        roastIndex =
+            (roastIndex + 1) % roasts.length;
+
+        const roast =
+            roasts[roastIndex];
+
+        roastTarget.textContent =
+            roast.target;
+
+        roastText.textContent =
+            `"${roast.text}"`;
 
         roastText.style.opacity = "1";
-        target.style.opacity = "1";
+        roastTarget.style.opacity = "1";
+
     }, 200);
+
 });
 
-/* =========================
+
+/* =====================================================
    SCROLL REVEAL
-========================= */
+===================================================== */
 
-const revealElements = document.querySelectorAll(
-    ".lore-card, .quote-card, .ability, .fighter"
-);
+const revealElements =
+    document.querySelectorAll(
+        ".story-card, .timeline-item, .fighter, .ability-card, .roast-box"
+    );
 
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("revealed");
-                observer.unobserve(entry.target);
-            }
-        });
-    },
-    { threshold: 0.15 }
-);
 
-revealElements.forEach((element) => {
-    element.style.opacity = "0";
-    element.style.transform = "translateY(30px)";
-    element.style.transition = "opacity 0.7s ease, transform 0.7s ease, border-color 0.4s ease";
+const observer =
+    new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "revealed"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    element.classList.add("reveal");
+
     observer.observe(element);
+
 });
 
-const revealStyle = document.createElement("style");
+
+/* =====================================================
+   REVEAL CSS
+===================================================== */
+
+const revealStyle =
+    document.createElement("style");
+
 revealStyle.textContent = `
-    .revealed {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
+
+    .reveal {
+
+        opacity: 0;
+        transform: translateY(35px);
+
+        transition:
+            opacity 0.8s ease,
+            transform 0.8s ease;
+
     }
+
+    .reveal.revealed {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
 `;
+
 document.head.appendChild(revealStyle);
 
-/* =========================
-   MOUSE PARALLAX (HERO)
-========================= */
 
-document.addEventListener("mousemove", (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5) * 15;
-    const y = (event.clientY / window.innerHeight - 0.5) * 15;
+/* =====================================================
+   HERO MOUSE PARALLAX
+===================================================== */
 
-    const heroImg = document.querySelector(".hero-image img");
-    if (heroImg) {
-        heroImg.style.transform = `scale(1.1) translate(${x}px, ${y}px)`;
+const heroImage =
+    document.querySelector(".hero-background img");
+
+
+window.addEventListener("mousemove", event => {
+
+    if (window.innerWidth < 800) {
+        return;
     }
+
+    const x =
+        (event.clientX / window.innerWidth - 0.5) * 10;
+
+    const y =
+        (event.clientY / window.innerHeight - 0.5) * 6;
+
+
+    heroImage.style.transform =
+        `scale(1.08) translate(${x}px, ${y}px)`;
+
+});
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+        sharinganOverlay.classList.remove("active");
+
+        sharinganButton.textContent =
+            "ACTIVATE SHARINGAN";
+
+        document.body.style.overflow = "";
+
+        navLinks.classList.remove("active");
+
+    }
+
 });
